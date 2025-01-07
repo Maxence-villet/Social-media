@@ -38,13 +38,13 @@ class Edge:
             return 0
         return int(self.sum_matrix/2) #asymetric
     
-    def count_list(self, list_adjacence:dict) :
+    def count_list(self, list_adjacency:dict) :
         """
         Counts the number of edges in a given adjacency list.
 
         Args:
         ------
-        list_adjacence (dict): The adjacency list representing the graph.
+        list_adjacency (dict): The adjacency list representing the graph.
 
         Returns:
         --------
@@ -54,7 +54,7 @@ class Edge:
         #reset value
         self.sum_list = 0
 
-        for i in list_adjacence.values():
+        for i in list_adjacency.values():
             if i == []:
                 continue
             
