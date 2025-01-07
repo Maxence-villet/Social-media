@@ -19,7 +19,7 @@ def main():
         [1, 0, 1],
         [1, 1, 0]
     ]
-    
+
     # instance of edge
     e = edge.Edge()
 
@@ -28,3 +28,4 @@ def main():
     print(e.count_list(liste_adjacence))
 
 
+main()
