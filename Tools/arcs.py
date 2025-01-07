@@ -45,5 +45,5 @@ class Arcs:
         for i in list_adjacency.values():
             if i == [] : # pass if the list is empty
                 continue
-            self.sum_list += 1
+            self.sum_list += len(i)
         return self.sum_list
