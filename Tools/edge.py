@@ -8,8 +8,8 @@ class Edge:
         sum_matrice (int): Sum of edges counted from the adjacency matrix.
         sum_list (int): Sum of edges counted from the adjacency list.
         """
-        self.sum_matrice:input = 0
-        self.sum_list:int = 0
+        self.sum_matrice:int
+        self.sum_list:int
     
     def count_matrice(self, matrice_adjacence):
         """
@@ -24,6 +24,10 @@ class Edge:
         int: The number of edges in the graph, divided by 2 for asymmetric matrices.
              Returns 0 if the matrix is not square or an error occurs.
         """
+        
+        #reset value
+        self.sum_matrice = 0
+        
         try:
             for i in range(0, len(matrice_adjacence)):
                 for j in range(0,len(matrice_adjacence)):
@@ -46,6 +50,10 @@ class Edge:
         --------
         int: The number of edges in the graph.
         """
+        
+        #reset value
+        self.sum_list = 0
+
         for i in list_adjacence.values():
             self.sum_list += 1
         return self.sum_list
