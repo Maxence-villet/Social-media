@@ -60,6 +60,6 @@ class Edge:
             else:
                 for j in i:
                     self.sum_list += 1
-        return int(self.sum_list/2)
+        return int(self.sum_list)
 
 
