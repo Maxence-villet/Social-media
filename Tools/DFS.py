@@ -15,7 +15,10 @@ class Dfs:
         ---------
         type : (list) of visited nodes with the DFS applies
         """
-        SOM, MAT = graph_tuple 
+        SOM, MAT = graph_tuple
+        if start not in self :
+            print("The node doesn't exit, you should pick another 'start' node")
+            return None
         self.visited_nodes = []
         self.node_to_index = {node: i for i, node in enumerate(SOM)} # create a ditionnary where each nodes have their unique index value
         self.dfs(graph_tuple, start) # applies the DFS algorithm
