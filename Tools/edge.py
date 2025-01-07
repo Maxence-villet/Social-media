@@ -57,8 +57,9 @@ class Edge:
         for i in list_adjacency.values():
             if i == []:
                 continue
-            
-            self.sum_list += 1
-        return self.sum_list
+            else:
+                for j in i:
+                    self.sum_list += 1
+        return int(self.sum_list/2)
 
 
