@@ -1,9 +1,29 @@
 class Edge:
     def __init__(self):
+        """
+        Initializes an Edge object with attributes to store sums of adjacency matrix and list.
+
+        Attributes:
+        -----------
+        sum_matrice (int): Sum of edges counted from the adjacency matrix.
+        sum_list (int): Sum of edges counted from the adjacency list.
+        """
         self.sum_matrice:input = 0
         self.sum_list:int = 0
     
     def count_matrice(self, matrice_adjacence):
+        """
+        Counts the number of edges in a given adjacency matrix.
+
+        Args:
+        ------
+        matrice_adjacence (list of list of int): The adjacency matrix representing the graph.
+
+        Returns:
+        --------
+        int: The number of edges in the graph, divided by 2 for asymmetric matrices.
+             Returns 0 if the matrix is not square or an error occurs.
+        """
         try:
             for i in range(0, len(matrice_adjacence)):
                 for j in range(0,len(matrice_adjacence)):
@@ -15,6 +35,17 @@ class Edge:
         return int(self.sum_matrice/2) #asymetric
     
     def count_list(self, list_adjacence:dict) :
+        """
+        Counts the number of edges in a given adjacency list.
+
+        Args:
+        ------
+        list_adjacence (dict): The adjacency list representing the graph.
+
+        Returns:
+        --------
+        int: The number of edges in the graph.
+        """
         for i in list_adjacence.values():
             self.sum_list += 1
         return self.sum_list
