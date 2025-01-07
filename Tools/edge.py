@@ -16,7 +16,7 @@ class Edge:
     
     def count_list(self, list_adjacence:dict) :
         for i in list_adjacence.values():
-            self.sum_list += 1;
+            self.sum_list += 1
         return self.sum_list
 
 
