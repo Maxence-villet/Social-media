@@ -16,7 +16,7 @@ class Dfs:
         type : (list) of visited nodes with the DFS applies
         """
         SOM, MAT = graph_tuple
-        if start not in self :
+        if start not in SOM :
             print("The node doesn't exit, you should pick another 'start' node")
             return None
         self.visited_nodes = []
