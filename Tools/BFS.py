@@ -8,7 +8,7 @@ class BFS:
         Neighbors are visited in a sorted order.
 
      Args:
-        graph (dict): A dictionary representing a graph, where keys are nodes
+        graph (list[list[int]]): A matrix representing a graph, where keys are nodes
         and values are lists of neighboring nodes.
 
         root (any): The starting node for breadth-first search.
