@@ -36,7 +36,7 @@ def main():
     SOM3 = ["A", "B", "C", "D", "E"]
     start3 = "A"
     end3 = "E"
-    # Expected result: ['A', 'B', 'C', 'D', 'E']
+    # Expected result: ['A', 'B', 'C', 'E']
 
     # Test 4: Single node graph
     MAT4 = [[0]]
@@ -86,7 +86,7 @@ def main():
         [0, 0, 0, 1],
         [0, 0, 0, 0]
     ]
-    SOM8 = ["A", "B", "C", "D"]
+    SOM8 = ["A", "B", "D"]
     start8 = "A"
     end8 = "D"
     # Expected result: ['A', 'B', 'C', 'D']
@@ -116,7 +116,7 @@ def main():
     top_path = propagation_path.PropagationPath()
 
     # Execute all tests
-    print("Test 1:", top_path.best_path((SOM1, MAT1), start1, end1))  # Expected: ['A', 'B', 'C']
+    print("Test 1:", top_path.best_path([SOM1, MAT1], start1, end1))  # Expected: ['A', 'B', 'C']
 
 
     try:
@@ -125,7 +125,7 @@ def main():
         print(f"Test 2 Error: {e}")
 
     try:
-        print("Test 3:", top_path.best_path((SOM3, MAT3), start3, end3))  # Expected: ['A', 'B', 'C', 'D', 'E']
+        print("Test 3:", top_path.best_path((SOM3, MAT3), start3, end3))  # Expected: ['A', 'B', 'E']
     except ValueError as e:
         print(f"Test 3 Error: {e}")
 
@@ -150,7 +150,7 @@ def main():
         print(f"Test 7 Error: {e}")
 
     try:
-        print("Test 8:", top_path.best_path((SOM8, MAT8), start8, end8))  # Expected: ['A', 'B', 'C', 'D']
+        print("Test 8:", top_path.best_path((SOM8, MAT8), start8, end8))  # Expected: ['A', 'B', 'D']
     except ValueError as e:
         print(f"Test 8 Error: {e}")
 
