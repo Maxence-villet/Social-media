@@ -23,6 +23,7 @@ def main():
         args.num_communities,
         args.max_distance
     )
+
     
     
     graph.save_graph_to_file(args.output, args.oriented, vertices, edges)

@@ -38,6 +38,10 @@ class Generate_Graph:
         if max_distance:
             edges = [edge for edge in edges if abs(edge[0] - edge[1]) <= max_distance]
         
+        if(oriented == False):
+            inverse_edge = [(y, x) for x, y in edges]
+            edges = edges + inverse_edge
+            
         return vertices, edges, communities
 
     def save_graph_to_file(self, filename, oriented, vertices, edges):
