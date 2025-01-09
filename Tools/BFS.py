@@ -1,28 +1,39 @@
-from collections import deque
+class BFS:
+    def __init__(self):
+        self.visited = set()
 
-def bfs(graph, root):
-    """
-    Performs a breadth-first search (BFS) on a given graph.
+    def bfs(self, graph, root):
+        """
+        Performs a breadth-first search (BFS) on a given graph using a list as the queue.
+        Neighbors are visited in a sorted order.
 
-    Args:
+     Args:
         graph (dict): A dictionary representing a graph, where keys are nodes
-        and values ​​are lists of neighboring nodes.
+        and values are lists of neighboring nodes.
 
         root (any): The starting node for breadth-first search.
 
     Returns:
-        set: A set containing all visited nodes.
-
-    
+        list: A list of visited nodes in the order they were explored.
     """
-    visited = set()
-    queue = deque([root])
+        SOM, MAT = graph
+        if root not in SOM:
+            raise ValueError("This node is not correct, please choose a node available in your node list")
+        
+        queue = [SOM.index(root)]
+        self.visited = set(root)
+        result = []
 
-    while queue:
-        vertex = queue.popleft()
-        visited.add(vertex)
-        for neighbor in graph[vertex]:
-            if neighbor not in visited:
-                queue.append(neighbor)
+        while queue:
+            node = queue.pop(0)
+            result.append(SOM[node])
 
-    return visited
+            for neighbor in range(len(SOM)):
+                if MAT[node][neighbor] == 1 and SOM[neighbor] not in self.visited:
+                    self.visited.add(SOM[neighbor])
+                    queue.append(neighbor)
+
+        return result  
+
+
+
