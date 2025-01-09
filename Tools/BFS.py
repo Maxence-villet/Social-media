@@ -16,24 +16,26 @@ class BFS:
     Returns:
         list: A list of visited nodes in the order they were explored.
     """
-        SOM, MAT = graph
+        SOM, MAT = graph  # SOM represents the nodes and MAT the adjacency matrix of the graph
         if root not in SOM:
-            raise ValueError("This node is not correct, please choose a node available in your node list")
+            # Checks if the starting node is valid
+            raise ValueError("Ce nœud n'est pas correct, veuillez choisir un nœud disponible dans votre liste de nœuds")
         
-        queue = [SOM.index(root)]
-        self.visited = set(root)
-        result = []
+        queue = [SOM.index(root)]  # Initializes the queue with the index of the starting node
+        self.visited = set(root)  # Mark the starting node as visited
+        result = []  # List to store visited nodes in visited order
 
         while queue:
-            node = queue.pop(0)
-            result.append(SOM[node])
+            node = queue.pop(0)  # Retrieves and removes the first element from the queue
+            result.append(SOM[node])  # Adds the current node to the results list
 
-            for neighbor in range(len(SOM)):
+            for neighbor in range(len(SOM)):  # Browse  neighbors
+                # Checks if the neighbor is online and has not been visited yet
                 if MAT[node][neighbor] == 1 and SOM[neighbor] not in self.visited:
-                    self.visited.add(SOM[neighbor])
-                    queue.append(neighbor)
+                    self.visited.add(SOM[neighbor])  # Mark neighbor as visited
+                    queue.append(neighbor)  # Add neighbor to queue
 
-        return result  
+        return result  # Returns the list of visited nodes
 
 
 
