@@ -1,0 +1,51 @@
+# Commandes line prompt examples 
+
+- python3 main.py generate --not_oriented --min_degree 2 --max_degree 5 --num_communities 3 --max_distance 10 --num_vertices 100 --output "graph1.txt" load --filename "graph1.txt" dfs --root 0
+- python3 main.py generate --oriented --min_degree 3 --max_degree 6 --num_communities 2 --max_distance 8 --num_vertices 50 --output "graph2.txt" load --filename "graph2.txt" bfs --root 1
+- python3 main.py load --filename "graph1.txt" top-influenceur
+- python3 main.py load --filename "graph2.txt" propage --start 0 --end 5
+- python3 main.py generate --not_oriented --min_degree 4 --max_degree 7 --num_communities 4 --max_distance 12 --num_vertices 200 --output "graph3.txt" load --filename "graph3.txt" time --start 2 --end 10
+- python3 main.py load --filename "graph3.txt" dfs --root 3
+- python3 main.py generate --oriented --min_degree 1 --max_degree 4 --num_communities 1 --max_distance 5 --num_vertices 30 --output "graph4.txt" load --filename "graph4.txt" bfs --root 2
+- python3 main.py load --filename "graph4.txt" top-influenceur
+- python3 main.py generate --not_oriented --min_degree 3 --max_degree 8 --num_communities 5 --max_distance 15 --num_vertices 150 --output "graph5.txt" load --filename "graph5.txt" propage --start 1 --end 7
+- python3 main.py load --filename "graph5.txt" time --start 0 --end 6
+- python3 main.py generate --oriented --min_degree 2 --max_degree 6 --num_communities 3 --max_distance 10 --num_vertices 80 --output "graph6.txt" load --filename "graph6.txt" dfs --root 4
+- python3 main.py load --filename "graph6.txt" bfs --root 3
+- python3 main.py generate --not_oriented --min_degree 5 --max_degree 9 --num_communities 2 --max_distance 20 --num_vertices 250 --output "graph7.txt" load --filename "graph7.txt" top-influenceur
+- python3 main.py load --filename "graph7.txt" propage --start 2 --end 8
+- python3 main.py generate --oriented --min_degree 1 --max_degree 3 --num_communities 1 --max_distance 7 --num_vertices 40 --output "graph8.txt" load --filename "graph8.txt" time --start 1 --end 5
+- python3 main.py load --filename "graph8.txt" dfs --root 0
+- python3 main.py generate --not_oriented --min_degree 4 --max_degree 7 --num_communities 4 --max_distance 12 --num_vertices 120 --output "graph9.txt" load --filename "graph9.txt" bfs --root 5
+- python3 main.py load --filename "graph9.txt" top-influenceur
+- python3 main.py generate --oriented --min_degree 3 --max_degree 6 --num_communities 2 --max_distance 9 --num_vertices 70 --output "graph10.txt" load --filename "graph10.txt" propage --start 3 --end 9
+- python3 main.py load --filename "graph10.txt" time --start 2 --end 7
+- python3 main.py generate --not_oriented --min_degree 2 --max_degree 5 --num_communities 3 --max_distance 10 --num_vertices 90 --output "graph11.txt" load --filename "graph11.txt" dfs --root 1
+- python3 main.py load --filename "graph11.txt" bfs --root 4
+- python3 main.py generate --oriented --min_degree 1 --max_degree 4 --num_communities 1 --max_distance 6 --num_vertices 60 --output "graph12.txt" load --filename "graph12.txt" top-influenceur
+- python3 main.py load --filename "graph12.txt" propage --start 0 --end 6
+- python3 main.py generate --not_oriented --min_degree 3 --max_degree 8 --num_communities 5 --max_distance 15 --num_vertices 180 --output "graph13.txt" load --filename "graph13.txt" time --start 1 --end 8
+- python3 main.py load --filename "graph13.txt" dfs --root 2
+- python3 main.py generate --oriented --min_degree 2 --max_degree 6 --num_communities 3 --max_distance 10 --num_vertices 100 --output "graph14.txt" load --filename "graph14.txt" bfs --root 3
+- python3 main.py load --filename "graph14.txt" top-influenceur
+- python3 main.py generate --not_oriented --min_degree 4 --max_degree 7 --num_communities 4 --max_distance 12 --num_vertices 130 --output "graph15.txt" load --filename "graph15.txt" propage --start 2 --end 7
+- python3 main.py load --filename "graph15.txt" time --start 0 --end 5
+- python3 main.py generate --oriented --min_degree 1 --max_degree 3 --num_communities 1 --max_distance 5 --num_vertices 50 --output "graph16.txt" load --filename "graph16.txt" dfs --root 4
+- python3 main.py load --filename "graph16.txt" bfs --root 1
+- python3 main.py generate --not_oriented --min_degree 3 --max_degree 6 --num_communities 2 --max_distance 8 --num_vertices 75 --output "graph17.txt" load --filename "graph17.txt" top-influenceur
+- python3 main.py load --filename "graph17.txt" propage --start 1 --end 6
+- python3 main.py generate --oriented --min_degree 2 --max_degree 5 --num_communities 3 --max_distance 10 --num_vertices 85 --output "graph18.txt" load --filename "graph18.txt" time --start 2 --end 8
+- python3 main.py load --filename "graph18.txt" dfs --root 3
+- python3 main.py generate --not_oriented --min_degree 4 --max_degree 7 --num_communities 4 --max_distance 12 --num_vertices 110 --output "graph19.txt" load --filename "graph19.txt" bfs --root 5
+- python3 main.py load --filename "graph19.txt" top-influenceur
+- python3 main.py generate --oriented --min_degree 1 --max_degree 4 --num_communities 1 --max_distance 7 --num_vertices 65 --output "graph20.txt" load --filename "graph20.txt" propage --start 0 --end 7
+- python3 main.py load --filename "graph20.txt" time --start 1 --end 6
+- python3 main.py generate --not_oriented --min_degree 3 --max_degree 8 --num_communities 5 --max_distance 15 --num_vertices 160 --output "graph21.txt" load --filename "graph21.txt" dfs --root 2
+- python3 main.py load --filename "graph21.txt" bfs --root 4
+- python3 main.py generate --oriented --min_degree 2 --max_degree 6 --num_communities 3 --max_distance 10 --num_vertices 95 --output "graph22.txt" load --filename "graph22.txt" top-influenceur
+- python3 main.py load --filename "graph22.txt" propage --start 1 --end 8
+- python3 main.py generate --not_oriented --min_degree 4 --max_degree 7 --num_communities 4 --max_distance 12 --num_vertices 140 --output "graph23.txt" load --filename "graph23.txt" time --start 2 --end 9
+- python3 main.py load --filename "graph23.txt" dfs --root 3
+- python3 main.py generate --oriented --min_degree 1 --max_degree 3 --num_communities 1 --max_distance 6 --num_vertices 55 --output "graph24.txt" load --filename "graph24.txt" bfs --root 1
+- python3 main.py load --filename "graph24.txt" top-influenceur
+- python3 main.py generate --not_oriented --min_degree 3 --max_degree 6 --num_communities 2 --max_distance 8 --num_vertices 70 --output "graph25.txt" load --filename "graph25.txt" propage --start 0 --end 5
