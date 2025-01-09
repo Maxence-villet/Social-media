@@ -29,16 +29,4 @@ def bfs(graph, root):
     return result  
 
 
-# Example : 
-graph = {
-    'A': ['B', 'C'],
-    'B': ['A', 'D', 'E'],
-    'C': ['A', 'F'],
-    'D': ['B'],
-    'E': ['B', 'F'],
-    'F': ['C', 'E']
-}
 
-
-visited_nodes = bfs(graph, 'F')
-print("node visited :", visited_nodes)
