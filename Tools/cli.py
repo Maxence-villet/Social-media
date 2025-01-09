@@ -52,7 +52,7 @@ class CLI:
             
                 if self.args[i-1] == "dfs" and self.args[i] == "--root":
                     self.argument.append(self.args[i])
-                if self.args[i-2] == "dfs" and type(int(self.args[i])) == int:
+                if self.args[i-2] == "dfs":
                     self.argument.append(self.args[i])
             except Exception as e:
                 print(f"Il vous manque des arguments pour faire le DFS, veuillez vous référez à la documentation pdf. Error : {e}")
@@ -63,7 +63,7 @@ class CLI:
                 
                 if self.args[i-1] == "bfs" and self.args[i] == "--root":
                     self.argument.append(self.args[i])
-                if self.args[i-2] == "bfs" and type(int(self.args[i])) == int:
+                if self.args[i-2] == "bfs":
                     self.argument.append(self.args[i])
             except Exception as e:
                 print(f"Il vous manque des arguments pour faire le BFS, veuillez vous référez à la documentation pdf. Error : {e}")
@@ -73,7 +73,7 @@ class CLI:
                     self.argument.append(self.args[i])
                 if self.args[i-1] == "load" and self.args[i] == "--filename":
                     self.argument.append(self.args[i])
-                if self.args[i-2] == "load" and type(self.args[i]) == str:
+                if self.args[i-2] == "load":
                     self.argument.append(self.args[i])
             except Exception as e:
                 print(f"Il vous manque des arguments pour charger le fichier txt, veuillez vous référez à la documentation pdf. Error : {e}")
@@ -89,11 +89,11 @@ class CLI:
                     self.argument.append(self.args[i])
                 if self.args[i-1] == "propage" and self.args[i] == "--start":
                     self.argument.append(self.args[i])
-                if self.args[i-2] == "propage" and type(int(self.args[i])) == int:
+                if self.args[i-2] == "propage":
                     self.argument.append(self.args[i])
                 if self.args[i-3] == "propage" and self.args[i] == "--end":
                     self.argument.append(self.args[i])
-                if self.args[i-4] == "propage" and type(int(self.args[i])) == int:
+                if self.args[i-4] == "propage":
                     self.argument.append(self.args[i])
             except Exception as e:
                 print(f"Il vous manque des arguments pour avoir le chemin de propagation, veuillez vous référer à la documentation pdf. Error : {e}")
@@ -103,11 +103,11 @@ class CLI:
                     self.argument.append(self.args[i])
                 if self.args[i-1] == "time" and self.args[i] == "--start":
                     self.argument.append(self.args[i])
-                if self.args[i-2] == "time" and type(int(self.args[i])) == int:
+                if self.args[i-2] == "time":
                     self.argument.append(self.args[i])
                 if self.args[i-3] == "time" and self.args[i] == "--end":
                     self.argument.append(self.args[i])
-                if self.args[i-4] == "time" and type(int(self.args[i])) == int:
+                if self.args[i-4] == "time":
                     self.argument.append(self.args[i])    
             except Exception as e:
                 print(f"Il vous manque des arguments pour avoir le temps de propagation, veuillez vous référer à la documentation pdf. Error : {e}")
@@ -162,20 +162,21 @@ class CLI:
             try:
                 #DFS
                 if self.argument[i] == "dfs":
-                    root = int(self.argument[i + 2])
+                    root = self.argument[i + 2]
                     dfs = DFS.Dfs()
                     print(f"DFS : {dfs.visited_dfs((self.vertices, self.matrix), str(root))}")
             except Exception as e:
                 print(f"Une erreur inattendu est survenue lors l'éxécution du DFS, veuillez vous référer à la documentation pdf. Erreur : {e}")
             
+            
             try:
-                #DFS
+                #BFS
                 if self.argument[i] == "bfs":
-                    root = int(self.argument[i + 2])
+                    root = self.argument[i + 2]
                     bfs = BFS.BFS()
-                    print(f"BFS : {dfs.visited_dfs((self.vertices, self.matrix), str(root))}")
+                    print(f"BFS : {bfs.bfs((self.vertices, self.matrix), str(root))}")
             except Exception as e:
-                print(f"Une erreur inattendu est survenue lors de l'éxécution du BFS', veuillez vous référer à la documentation pdf. Erreur : {e}")
+                print(f"Une erreur inattendu est survenue lors de l'éxécution du BFS, veuillez vous référer à la documentation pdf. Erreur : {e}")
                     
             try:
                 # Top Influenceur
