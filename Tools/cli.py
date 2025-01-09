@@ -15,31 +15,31 @@ class CLI:
                     if self.args[i] == "generate":
                         self.argument.append(self.args[i])
                     
-                    if self.args[i-1] == "generate""--oriented":
+                    if self.args[i-1] == "generate" and self.args[i] == "--oriented":
                         self.argument.append(self.args[i])
-                    if self.args[i-1] == "generate""--not_oriented":
+                    if self.args[i-1] == "generate" and self.args[i] == "--not_oriented":
                         self.argument.append(self.args[i])
-                    if self.args[i-2] == "generate""--min_degree":
+                    if self.args[i-2] == "generate" and self.args[i] == "--min_degree":
                         self.argument.append(self.args[i])
-                    if self.args[i-3] == "generate":
+                    if self.args[i-3] == "generate" and type(int(self.args[i])) == int:
                         self.argument.append(self.args[i])
-                    if self.args[i-4] == "generate""--max_degree":
+                    if self.args[i-4] == "generate" and self.args[i] == "--max_degree":
                         self.argument.append(self.args[i])
-                    if self.args[i-5] == "generate":
+                    if self.args[i-5] == "generate" and type(int(self.args[i])) == int:
                         self.argument.append(self.args[i])
-                    if self.args[i-6] == "generate""--num_communities":
+                    if self.args[i-6] == "generate" and self.args[i] == "--num_communities":
                         self.argument.append(self.args[i])
-                    if self.args[i-7] == "generate":
+                    if self.args[i-7] == "generate" and type(int(self.args[i])) == int:
                         self.argument.append(self.args[i])
-                    if self.args[i-8] == "generate""--max_distance":
+                    if self.args[i-8] == "generate" and self.args[i] == "--max_distance":
                         self.argument.append(self.args[i])
-                    if self.args[i-9] == "generate":
+                    if self.args[i-9] == "generate" and type(int(self.args[i])) == int:
                         self.argument.append(self.args[i])
-                    if self.args[i-10] == "generate""--num_vertices":
+                    if self.args[i-10] == "generate" and self.args[i] == "--num_vertices":
                         self.argument.append(self.args[i])
-                    if self.args[i-11] == "generate":
+                    if self.args[i-11] == "generate" and type(int(self.args[i])) == int:
                         self.argument.append(self.args[i])    
-                    if self.args[i-12] == "generate""--output":
+                    if self.args[i-12] == "generate" and self.args[i] == "--output":
                         self.argument.append(self.args[i])    
                     if self.args[i-13] == "generate" and type(self.args[i]) == str:
                         self.argument.append(self.args[i])
@@ -50,7 +50,7 @@ class CLI:
                 if self.args[i] == "dfs":
                     self.argument.append(self.args[i])
             
-                if self.args[i-1] == "dfs""--root":
+                if self.args[i-1] == "dfs" and self.args[i] == "--root":
                     self.argument.append(self.args[i])
                 if self.args[i-2] == "dfs":
                     self.argument.append(self.args[i])
@@ -61,7 +61,7 @@ class CLI:
                 if self.args[i] == "bfs":
                     self.argument.append(self.args[i])
                 
-                if self.args[i-1] == "bfs""--root":
+                if self.args[i-1] == "bfs" and self.args[i] == "--root":
                     self.argument.append(self.args[i])
                 if self.args[i-2] == "bfs":
                     self.argument.append(self.args[i])
@@ -71,9 +71,9 @@ class CLI:
             try:
                 if self.args[i] == "load":
                     self.argument.append(self.args[i])
-                if self.args[i-1] == "load""--filename":
+                if self.args[i-1] == "load" and self.args[i] == "--filename":
                     self.argument.append(self.args[i])
-                if self.args[i-2] == "load" and type(self.args[i]) == str:
+                if self.args[i-2] == "load":
                     self.argument.append(self.args[i])
             except Exception as e:
                 print(f"Il vous manque des arguments pour charger le fichier txt, veuillez vous référez à la documentation pdf. Error : {e}")
@@ -87,11 +87,11 @@ class CLI:
             try:
                 if self.args[i] == "propage":
                     self.argument.append(self.args[i])
-                if self.args[i-1] == "propage""--start":
+                if self.args[i-1] == "propage" and self.args[i] == "--start":
                     self.argument.append(self.args[i])
                 if self.args[i-2] == "propage":
                     self.argument.append(self.args[i])
-                if self.args[i-3] == "propage""--end":
+                if self.args[i-3] == "propage" and self.args[i] == "--end":
                     self.argument.append(self.args[i])
                 if self.args[i-4] == "propage":
                     self.argument.append(self.args[i])
@@ -101,11 +101,11 @@ class CLI:
             try:
                 if self.args[i] == "time":
                     self.argument.append(self.args[i])
-                if self.args[i-1] == "time""--start":
+                if self.args[i-1] == "time" and self.args[i] == "--start":
                     self.argument.append(self.args[i])
                 if self.args[i-2] == "time":
                     self.argument.append(self.args[i])
-                if self.args[i-3] == "time""--end":
+                if self.args[i-3] == "time" and self.args[i] == "--end":
                     self.argument.append(self.args[i])
                 if self.args[i-4] == "time":
                     self.argument.append(self.args[i])    
@@ -138,12 +138,12 @@ class CLI:
                         isOriented = False
                     if self.argument[i+1] == "--oriented":
                         isOriented = True
-                    min_degree = self.argument[i+3]
-                    max_degree = self.argument[i+5]
-                    num_communities = self.argument[i+7]
-                    max_distance = self.argument[i+9]
+                    min_degree = int(self.argument[i+3])
+                    max_degree = int(self.argument[i+5])
+                    num_communities = int(self.argument[i+7])
+                    max_distance = int(self.argument[i+9])
                     output = self.argument[i+13]
-                    num_vertices = self.argument[i+11]
+                    num_vertices = int(self.argument[i+11])
                     vertices, edges, communities  = generate.generate_graph(isOriented, num_vertices, min_degree, max_degree, num_communities, max_distance)
                     generate.save_graph_to_file(output, isOriented, vertices, edges)
                     print(f"Graphe généré et enregistré dans {output}")
@@ -168,14 +168,15 @@ class CLI:
             except Exception as e:
                 print(f"Une erreur inattendu est survenue lors l'éxécution du DFS, veuillez vous référer à la documentation pdf. Erreur : {e}")
             
+            
             try:
-                #DFS
+                #BFS
                 if self.argument[i] == "bfs":
                     root = self.argument[i + 2]
                     bfs = BFS.BFS()
-                    print(f"BFS : {dfs.visited_dfs((self.vertices, self.matrix), str(root))}")
+                    print(f"BFS : {bfs.bfs((self.vertices, self.matrix), str(root))}")
             except Exception as e:
-                print(f"Une erreur inattendu est survenue lors de l'éxécution du BFS', veuillez vous référer à la documentation pdf. Erreur : {e}")
+                print(f"Une erreur inattendu est survenue lors de l'éxécution du BFS, veuillez vous référer à la documentation pdf. Erreur : {e}")
                     
             try:
                 # Top Influenceur
