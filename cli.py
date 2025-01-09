@@ -1,4 +1,4 @@
-from Tools import generate_graph, DFS, BFS, Load_graph
+from Tools import generate_graph, DFS, BFS, Load_graph, Top_Influencer
 import sys
 
 class CLI:
@@ -67,6 +67,9 @@ class CLI:
             if self.args[i-2] == "load" and type(self.args[i]) == str:
                 self.argument.append(self.args[i])
 
+            if self.args[i] == "top-influenceur":
+                self.argument.append(self.args[i])
+
             # if self.args[i] == "--arcs-list":
             #     self.argument.append(self.args[i])
             
@@ -122,6 +125,10 @@ class CLI:
                 bfs = BFS.BFS()
                 print(f"BFS : {dfs.visited_dfs((self.vertices, self.matrix), str(root))}")
                 
+            # Top Influenceur
+            if self.argument[i] == "top-influenceur":
+                top_influenenceur = Top_Influencer.Top1()
+                print(f"TOP INFLUENCEUR : {top_influenenceur.influencer((self.vertices, self.matrix))}")
             # #Arcs
             # if self.argument[i] == "--arcs-list":
             #     arc = arcs.Arcs()
