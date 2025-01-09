@@ -1,10 +1,12 @@
-from DFS import *
+from Tools import propagation_path
 
 class PropagationTime:
-    def __init__(self):
-        self.time = 0
-    
-    def propagation_time(self, graph_tuple, start, end):
-        SOM, MAT = graph_tuple
+    def time_path(self, graph_tuple, start, end):
+        
+        path = propagation_path.PropagationPath()
+        path_time = path.best_path(graph_tuple, start, end)
+        
+        return(str((len(path_time) * 5) - 5) + " sec")
+        
         
         
