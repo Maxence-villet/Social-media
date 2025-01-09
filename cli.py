@@ -6,7 +6,7 @@ class CLI:
         self.argument = []
         self.args = sys.argv
         self.matrix = list[list[int]]
-        self.vertices = int
+        self.vertices = []
 
     def check_args(self):
         
@@ -70,6 +70,20 @@ class CLI:
                 self.argument.append(self.args[i])
             if self.args[i-2] == "load" and type(self.args[i]) == str:
                 self.argument.append(self.args[i])
+
+            # if self.args[i] == "--arcs-list":
+            #     self.argument.append(self.args[i])
+            
+            # if self.args[i] == "--arcs-matrice":
+            #     self.argument.append(self.args[i])
+            
+            # if self.args[i] == "--edges-list":
+            #     self.argument.append(self.args[i])
+            
+            # if self.args[i] == "--edges-matrice":
+            #     self.argument.append(self.args[i])
+            
+
     
     def execute(self):
         for i in range(len(self.argument)):
@@ -97,17 +111,27 @@ class CLI:
                 loadGraph = Load_graph.LoadGraph()
                 filename = self.argument[i + 2]
                 print(filename)
-                self.vertice, self.matrix = loadGraph.process_graph_file(filename)
+                self.vertices, self.matrix = loadGraph.process_graph_file(filename)
                 print("Matrice d'adjacence:")
                 for row in self.matrix:
                     print(row)
                 print("\nListe d'adjacence:")
 
             #DFS
-            if self.argument[i] == "bfs":
+            if self.argument[i] == "dfs":
+                print(self.vertices)
                 root = int(self.argument[i + 2])
-                visited_nodes = BFS.bfs(self.matrix, root)
-                print("Nœuds visités:", visited_nodes)
+                dfs = DFS.Dfs()
+                print(dfs.visited_dfs((self.vertices, self.matrix), str(root)))
+                
+            # #Arcs
+            # if self.argument[i] == "--arcs-list":
+            #     arc = arcs.Arcs()
+            #     print(arc.count_list(self.vertices))
+            # if self.argument[i] == "--arcs-matrice":
+            #     arc = arcs.Arcs()
+            #     print(arc.count_matrix(self.matrix))
+
 
 
 
