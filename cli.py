@@ -1,4 +1,4 @@
-from Tools import generate_graph, DFS, BFS, Load_graph, Top_Influencer
+from Tools import generate_graph, DFS, BFS, Load_graph, Top_Influencer, propagation_path
 import sys
 
 class CLI:
@@ -70,6 +70,18 @@ class CLI:
             if self.args[i] == "top-influenceur":
                 self.argument.append(self.args[i])
 
+            if self.args[i] == "propage":
+                self.argument.append(self.args[i])
+            if self.args[i-1] == "propage" and self.args[i] == "--start":
+                self.argument.append(self.args[i])
+            if self.args[i-2] == "propage" and type(int(self.args[i])) == int:
+                self.argument.append(self.args[i])
+            if self.args[i-3] == "propage" and self.args[i] == "--end":
+                self.argument.append(self.args[i])
+            if self.args[i-4] == "propage" and type(int(self.args[i])) == int:
+                self.argument.append(self.args[i])
+                
+
             # if self.args[i] == "--arcs-list":
             #     self.argument.append(self.args[i])
             
@@ -129,6 +141,14 @@ class CLI:
             if self.argument[i] == "top-influenceur":
                 top_influenenceur = Top_Influencer.Top1()
                 print(f"TOP INFLUENCEUR : {top_influenenceur.influencer((self.vertices, self.matrix))}")
+
+            # Propagation path
+            if self.argument[i] == "propage":
+                print(self.argument)
+                start = self.argument[i+2]
+                end = self.argument[i+4]
+                propage = propagation_path.PropagationPath()
+                print(f"PROPAGATION PATH : {propage.best_path((self.vertices, self.matrix), start, end)}")
             # #Arcs
             # if self.argument[i] == "--arcs-list":
             #     arc = arcs.Arcs()
