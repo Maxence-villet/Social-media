@@ -1,5 +1,8 @@
 class BFS:
-    def bfs(graph, root):
+    def __init__(self):
+        self.visited = set()
+
+    def bfs(self, graph, root):
         """
         Performs a breadth-first search (BFS) on a given graph using a list as the queue.
         Neighbors are visited in a sorted order.
@@ -13,18 +16,18 @@ class BFS:
     Returns:
         list: A list of visited nodes in the order they were explored.
     """
-        visited = set()
-        queue = [root]  
-        result = []  
+        SOM, MAT = graph
+        queue = [SOM.index(root)]
+        self.visited = set(root)
+        result = []
 
         while queue:
-            vertex = queue.pop(0)  
-        if vertex not in visited:
-            visited.add(vertex)
-            result.append(vertex)
-            
-            for neighbor in sorted(graph[vertex]):  
-                if neighbor not in visited:
+            node = queue.pop(0)
+            result.append(SOM[node])
+
+            for neighbor in range(len(SOM)):
+                if MAT[node][neighbor] == 1 and SOM[neighbor] not in self.visited:
+                    self.visited.add(SOM[neighbor])
                     queue.append(neighbor)
 
         return result  
