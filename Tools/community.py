@@ -24,14 +24,16 @@ class Community:
                 if neighbor not in visited:
                     dfs(neighbor)
 
-       
+        # Start the path from the first node
         dfs(list(network.keys())[0])
 
-        
+        # Checks if all nodes have been visited
         return len(visited) == len(network)
 
 
 def main():
+
+   # Network 1 (1 community)
     MAT1 = [
         [0, 1, 1],  
         [1, 0, 1],  
@@ -39,12 +41,13 @@ def main():
     ]
     NODES1 = ["A", "B", "C"]
     
-   
+    # Conversion to adjacency list
     network_1 = {NODES1[i]: [NODES1[j] for j in range(len(MAT1)) if MAT1[i][j] == 1] for i in range(len(MAT1))}
     
     
-    print(Community.solo_community(network_1)) 
+    print(Community.solo_community(network_1))  # return True
     
+   # Network 2 (multiple communities)
     MAT2 = [
         [0, 1, 0, 0],  
         [1, 0, 0, 0],  
@@ -53,12 +56,13 @@ def main():
     ]
     NODES2 = ["A", "B", "C", "D"]
     
-   
+    # Conversion to adjacency list
     network_2 = {NODES2[i]: [NODES2[j] for j in range(len(MAT2)) if MAT2[i][j] == 1] for i in range(len(MAT2))}
     
     
-    print(Community.solo_community(network_2))  
+    print(Community.solo_community(network_2))  #return false
 
 
 if __name__ == "__main__":
+   #calls the main() function
     main()
