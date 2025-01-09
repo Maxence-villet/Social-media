@@ -9,11 +9,7 @@ class CLI:
         self.vertices = []
 
     def check_args(self):
-        
-        print(len(self.args))
         for i in range(len(self.args)):
-            print(self.args[i])
-
             if len(self.args) > 12:
                 if self.args[i] == "generate":
                     self.argument.append(self.args[i])
@@ -110,19 +106,21 @@ class CLI:
             if self.argument[i] == "load":
                 loadGraph = Load_graph.LoadGraph()
                 filename = self.argument[i + 2]
-                print(filename)
                 self.vertices, self.matrix = loadGraph.process_graph_file(filename)
-                print("Matrice d'adjacence:")
-                for row in self.matrix:
-                    print(row)
-                print("\nListe d'adjacence:")
+                print(f"Fichier {filename} chargée avec succès")
+
 
             #DFS
             if self.argument[i] == "dfs":
-                print(self.vertices)
                 root = int(self.argument[i + 2])
                 dfs = DFS.Dfs()
-                print(dfs.visited_dfs((self.vertices, self.matrix), str(root)))
+                print(f"DFS : {dfs.visited_dfs((self.vertices, self.matrix), str(root))}")
+
+            #DFS
+            if self.argument[i] == "bfs":
+                root = int(self.argument[i + 2])
+                bfs = BFS.BFS()
+                print(f"BFS : {dfs.visited_dfs((self.vertices, self.matrix), str(root))}")
                 
             # #Arcs
             # if self.argument[i] == "--arcs-list":
@@ -138,7 +136,6 @@ class CLI:
 
 cli = CLI()
 cli.check_args()
-print(cli.argument)
 cli.execute()
 
                 
