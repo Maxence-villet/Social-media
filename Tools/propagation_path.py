@@ -7,8 +7,8 @@ class PropagationPath:
         self.node_to_index = {}
 
     def best_path(self, graph_tuple, start, end):
+        bfs_start = BFS.BFS.bfs(graph_tuple, start)
         SOM, MAT = graph_tuple
-        bfs_start = bfs(start)
         self.visited = []
         self.node_to_index = {node: i for i, node in enumerate(SOM)}
 

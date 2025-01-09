@@ -113,13 +113,11 @@ def main():
     # Expected result: ValueError with message "No path found between A and C"
 
     # Create an instance of PropagationPath
-    top_path = propagation_path.PropagationPath
+    top_path = propagation_path.PropagationPath()
 
     # Execute all tests
-    try:
-        print("Test 1:", top_path.best_path((SOM1, MAT1), start1, end1))  # Expected: ['A', 'B', 'C']
-    except ValueError as e:
-        print(f"Test 1 Error: {e}")
+    print("Test 1:", top_path.best_path((SOM1, MAT1), start1, end1))  # Expected: ['A', 'B', 'C']
+
 
     try:
         print("Test 2:", top_path.best_path((SOM2, MAT2), start2, end2))  # Expected: ValueError
