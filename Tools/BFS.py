@@ -1,9 +1,10 @@
-def bfs(graph, root):
-    """
-    Performs a breadth-first search (BFS) on a given graph using a list as the queue.
-    Neighbors are visited in a sorted order.
+class BFS:
+    def bfs(graph, root):
+        """
+        Performs a breadth-first search (BFS) on a given graph using a list as the queue.
+        Neighbors are visited in a sorted order.
 
-    Args:
+     Args:
         graph (dict): A dictionary representing a graph, where keys are nodes
         and values are lists of neighboring nodes.
 
@@ -12,12 +13,12 @@ def bfs(graph, root):
     Returns:
         list: A list of visited nodes in the order they were explored.
     """
-    visited = set()
-    queue = [root]  
-    result = []  
+        visited = set()
+        queue = [root]  
+        result = []  
 
-    while queue:
-        vertex = queue.pop(0)  
+        while queue:
+            vertex = queue.pop(0)  
         if vertex not in visited:
             visited.add(vertex)
             result.append(vertex)
@@ -26,7 +27,7 @@ def bfs(graph, root):
                 if neighbor not in visited:
                     queue.append(neighbor)
 
-    return result  
+        return result  
 
 
 
