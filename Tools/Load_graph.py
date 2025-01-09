@@ -82,4 +82,4 @@ class LoadGraph:
         adjacency_matrix = self.create_adjacency_matrix(vertices, edges, is_oriented)
         adjacency_list = self.create_adjacency_list(vertices, edges, is_oriented)
 
-        return len(vertices), adjacency_matrix 
+        return vertices, adjacency_matrix 
