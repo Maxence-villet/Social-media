@@ -17,6 +17,9 @@ class BFS:
         list: A list of visited nodes in the order they were explored.
     """
         SOM, MAT = graph
+        if root not in SOM:
+            raise ValueError("This node is not correct, please choose a node available in your node list")
+        
         queue = [SOM.index(root)]
         self.visited = set(root)
         result = []
