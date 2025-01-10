@@ -3,12 +3,27 @@ import sys
 
 class CLI:
     def __init__(self):
+        """
+        Initializes the CLI class and retrieves the command-line arguments.
+        """
         self.argument = []
         self.args = sys.argv
         self.matrix = list[list[int]]
         self.vertices = []
 
     def check_args(self):
+        """
+        Checks the command-line arguments and stores them in a list.
+
+        Args:
+        -----
+        self.args (list) : List of command-line arguments.
+
+        Returns:
+        --------
+        None
+        """
+
         for i in range(len(self.args)):
             try:
                 if len(self.args) > 12:
@@ -127,8 +142,18 @@ class CLI:
 
     
     def execute(self):
-        for i in range(len(self.argument)):
-            
+        """
+        Executes commands based on the command-line arguments provided.
+
+        Args:
+        -----
+        self.argument (list) : List of validated arguments.
+
+        Returns:
+        --------
+        None
+        """
+        for i in range(len(self.argument)): 
             try:
                 # generate
                 if self.argument[i] == "generate": 

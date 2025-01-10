@@ -20,3 +20,9 @@ The 'generate graph' class allows you to generate graphs by taking into account 
 The 'stack' class allows you to remove the last one that was added to the list, unlike the 'queue' class which allows you to remove the first one to arrive in the list.
 
 The 'Loadgraph' class allows to examine the graph and then it returns a list of adjacency and matrix in column form.
+
+The 'top 1' class allows to find which vertex has the most neighbors, the top influencers can be several.
+
+The 'propagationpath' class is used to determine which is the fastest path to reach the last summit.
+
+The 'propagationtime' class is a function that collects the path between two nodes in the propagation path module and adds 5 minutes for each node passed.
