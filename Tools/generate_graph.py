@@ -9,7 +9,24 @@ class Generate_Graph:
         self.oriented
 
     def generate_graph(self, oriented, num_vertices, min_degree, max_degree, num_communities, max_distance):
-        
+        """
+        This function generates a graph based on the provided parameters. It sets the orientation of the graph,
+        generates vertices, communities, edges, and sets the maximum distance between vertices. Additionally,
+        it duplicates the vertices if the graph is not oriented.
+
+        Args:
+        -----
+            oriented (bool): Indicates whether the graph is oriented (directed) or not.
+            num_vertices (int): The number of vertices to generate in the graph.
+            min_degree (int): The minimum degree of each vertex.
+            max_degree (int): The maximum degree of each vertex.
+            num_communities (int): The number of communities to generate within the graph.
+            max_distance (int): The maximum allowed distance between any two vertices.
+
+        Returns:
+        --------
+            None
+        """ 
         self.setOriented(oriented)
 
         # generate value
@@ -20,7 +37,6 @@ class Generate_Graph:
         
         self.duplicate_vertices()
 
-        return self.vertices, self.edges, self.communities
 
     def setOriented(self, oriented):
         if not oriented:
