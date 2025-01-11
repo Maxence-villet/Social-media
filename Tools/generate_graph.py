@@ -3,10 +3,10 @@ import random
 
 class Generate_Graph:
     def __init__(self):
-        self.vertices
+        self.vertices:list[int]
         self.communities = []
         self.edges = []
-        self.oriented
+        self.oriented:bool
 
     def generate_graph(self, oriented, num_vertices, min_degree, max_degree, num_communities, max_distance):
         """
@@ -39,7 +39,7 @@ class Generate_Graph:
 
 
     def setOriented(self, oriented):
-        if not oriented:
+        if oriented == None:
             raise ValueError("oriented ne peux pas être vide")
         
         if type(oriented) != bool:
