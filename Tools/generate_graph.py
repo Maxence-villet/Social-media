@@ -5,25 +5,14 @@ class Generate_Graph:
     def __init__(self):
         self.vertices
         self.communities = []
+        self.edges = []
+        self.oriented
 
     def generate_graph(self, oriented, num_vertices, min_degree, max_degree, num_communities, max_distance):
         self.generate_vertices(num_vertices)
         self.generate_communities(num_communities)
+
         
-        
-        # Générer les arcs/arêtes
-        edges = []
-        for vertex in self.vertices:
-            degree = random.randint(min_degree, max_degree)
-            possible_neighbors = [v for v in self.vertices if v != vertex]
-            neighbors = random.sample(possible_neighbors, min(degree, len(possible_neighbors)))
-            
-            for neighbor in neighbors:
-                if oriented:
-                    edges.append((vertex, neighbor))
-                else:
-                    if (neighbor, vertex) not in edges:
-                        edges.append((vertex, neighbor))
         
         # Appliquer la contrainte de distance maximale
         if max_distance:
@@ -35,17 +24,26 @@ class Generate_Graph:
             
         return vertices, edges, communities
 
-    def generate_vertices(self, num_vertices) -> list[int]:
+    def setOriented(self, oriented):
+        if not oriented:
+            raise ValueError("oriented ne peux pas être vide")
+        
+        if type(oriented) != bool:
+            raise ValueError("L'orientation doit être un boolean")
+        
+        self.oriented = oriented
+    
+    def generate_vertices(self, num_vertices):
         """
         this function generate an vertices list
 
         Args:
         -----
-        num_vertices (int) : number of vertices
+            num_vertices (int) : number of vertices
 
         Returns:
         --------
-        (list[int]) : list of vertices
+            None
 
         """
         if not num_vertices:
@@ -56,17 +54,17 @@ class Generate_Graph:
         
         self.vertices = list(range(num_vertices))
     
-    def generate_communities(self, num_communities) -> list[int]:
+    def generate_communities(self, num_communities):
         """
         this function generate an communities list
 
         Args:
         -----
-        num_communities (int) : number of communities
+            num_communities (int) : number of communities
 
         Returns:
         --------
-        (list[int]) : list of communities
+            None
 
         """
         if not num_communities:
@@ -84,6 +82,43 @@ class Generate_Graph:
             self.communities.append(community)
             remaining_vertices = [v for v in remaining_vertices if v not in community]
 
+    def generate_edges(self, min_degree, max_degree):
+        """
+        this function generate an edges list
+
+        Args:
+        -----
+            min_degree (int) : minimal degree allow
+            max_degree (int) : maximal degree allow
+
+        Returns:
+        --------
+            None
+
+        """
+        if not min_degree:
+            raise ValueError("min_degree ne peux pas être vide")
+        
+        if type(min_degree) != int:
+            raise ValueError("Le nombre minimal de degree doit être un entier")
+
+        if not max_degree:
+            raise ValueError("max_degree ne peux pas être vide")
+        
+        if type(max_degree) != int:
+            raise ValueError("Le nombre maximal de degree doit être un entier")
+
+        for vertex in self.vertices:
+            degree = random.randint(min_degree, max_degree)
+            possible_neighbors = [v for v in self.vertices if v != vertex]
+            neighbors = random.sample(possible_neighbors, min(degree, len(possible_neighbors)))
+            
+            for neighbor in neighbors:
+                if self.oriented:
+                    self.edges.append((vertex, neighbor))
+                else:
+                    if (neighbor, vertex) not in self.edges:
+                        self.edges.append((vertex, neighbor))
 
     def save_graph_to_file(self, filename, oriented, vertices, edges):
         with open(filename, 'w') as file:
