@@ -169,8 +169,8 @@ class CLI:
                     max_distance = int(self.argument[i+9])
                     output = self.argument[i+13]
                     num_vertices = int(self.argument[i+11])
-                    vertices, edges, communities  = generate.generate_graph(isOriented, num_vertices, min_degree, max_degree, num_communities, max_distance)
-                    generate.save_graph_to_file(output, isOriented, vertices, edges)
+                    generate.generate_graph(isOriented, num_vertices, min_degree, max_degree, num_communities, max_distance)
+                    generate.save_graph_to_file(output)
                     print(f"Graphe généré et enregistré dans {output}")
             except Exception as e:
                 print(f"Une erreur inattendu est survenue lors de la génération du graphe, veuillez vous référer à la documentation pdf. Erreur : {e}")
