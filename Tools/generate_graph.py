@@ -9,11 +9,18 @@ class Generate_Graph:
         self.oriented
 
     def generate_graph(self, oriented, num_vertices, min_degree, max_degree, num_communities, max_distance):
+        
+        self.setOriented(oriented)
+
+        # generate value
         self.generate_vertices(num_vertices)
         self.generate_communities(num_communities)
+        self.generate_edges(min_degree, max_degree)
+        self.generate_max_distance(max_distance)
+        
+        self.duplicate_vertices()
 
-
-        return vertices, edges, communities
+        return self.vertices, self.edges, self.communities
 
     def setOriented(self, oriented):
         if not oriented:
@@ -154,13 +161,31 @@ class Generate_Graph:
             self.edges = [edge for edge in self.edges if abs(edge[0] - edge[1]) <= max_distance]
         
         
-    def save_graph_to_file(self, filename, oriented, vertices, edges):
+    def save_graph_to_file(self, filename):
+        """
+        this function save graphe to txt file
+
+        Args:
+        -----
+            filename (str) : name of file
+
+        Returns:
+        --------
+            None
+
+        """
+        if not filename:
+            raise ValueError("filename ne peux pas être vide")
+        
+        if type(filename) != str:
+            raise ValueError("le nom du fichier doit être une chaîne de caractère")
+
         with open(filename, 'w') as file:
-            file.write("GRAPHE ORIENTE\n" if oriented else "GRAPHE NON ORIENTE\n")
-            file.write(f"{len(vertices)} SOMMETS\n")
-            for vertex in vertices:
+            file.write("GRAPHE ORIENTE\n" if self.oriented else "GRAPHE NON ORIENTE\n")
+            file.write(f"{len(self.vertices)} SOMMETS\n")
+            for vertex in self.vertices:
                 file.write(f"{vertex}\n")
-            file.write(f"{len(edges)} ARCS\n" if oriented else f"{len(edges)} ARETES\n")
-            for edge in edges:
+            file.write(f"{len(self.edges)} ARCS\n" if self.oriented else f"{len(self.edges)} ARETES\n")
+            for edge in self.edges:
                 file.write(f"{edge[0]} {edge[1]}\n")
 
