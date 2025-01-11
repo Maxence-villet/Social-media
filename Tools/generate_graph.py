@@ -12,16 +12,10 @@ class Generate_Graph:
         self.generate_vertices(num_vertices)
         self.generate_communities(num_communities)
 
-        
-        
-        # Appliquer la contrainte de distance maximale
-        if max_distance:
-            edges = [edge for edge in edges if abs(edge[0] - edge[1]) <= max_distance]
-        
         if(oriented == False):
             inverse_edge = [(y, x) for x, y in edges]
             edges = edges + inverse_edge
-            
+
         return vertices, edges, communities
 
     def setOriented(self, oriented):
@@ -119,7 +113,32 @@ class Generate_Graph:
                 else:
                     if (neighbor, vertex) not in self.edges:
                         self.edges.append((vertex, neighbor))
+    
+    def generate_max_distance(self, max_distance):
+        """
+        this function generate an edges list with maximal distance
 
+        Args:
+        -----
+            
+            max_distance (int) : maximal distance of edges from _ to _
+
+        Returns:
+        --------
+            None
+
+        """
+
+        if not max_distance:
+            raise ValueError("max_distance ne peux pas être vide")
+        
+        if type(max_distance) != int:
+            raise ValueError("La distance maximal doit être un entier")
+
+        if max_distance:
+            self.edges = [edge for edge in self.edges if abs(edge[0] - edge[1]) <= max_distance]
+        
+        
     def save_graph_to_file(self, filename, oriented, vertices, edges):
         with open(filename, 'w') as file:
             file.write("GRAPHE ORIENTE\n" if oriented else "GRAPHE NON ORIENTE\n")
