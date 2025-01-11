@@ -6,8 +6,7 @@ class Generate_Graph:
         pass
 
     def generate_graph(self, oriented, num_vertices, min_degree, max_degree, num_communities, max_distance):
-        # Générer les sommets
-        vertices = list(range(num_vertices))
+        vertices = self.generate_vertices(num_vertices)
         
         # Générer les communautés
         communities = []
@@ -43,6 +42,27 @@ class Generate_Graph:
             edges = edges + inverse_edge
             
         return vertices, edges, communities
+
+    def generate_vertices(self, num_vertices):
+        """
+        this function generate an vertices list
+
+        Args:
+        -----
+        num_vertices (int) : number of vertices
+
+        Returns:
+        --------
+        (list[int]) : list of vertices
+
+        """
+        if not num_vertices:
+            raise ValueError("num_vertices ne peux pas être vide")
+        
+        if type(num_vertices) != int:
+            raise ValueError("Le nombre de sommets doit être un entier")
+        
+        return list(range(num_vertices))
 
     def save_graph_to_file(self, filename, oriented, vertices, edges):
         with open(filename, 'w') as file:
