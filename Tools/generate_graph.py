@@ -12,9 +12,6 @@ class Generate_Graph:
         self.generate_vertices(num_vertices)
         self.generate_communities(num_communities)
 
-        if(oriented == False):
-            inverse_edge = [(y, x) for x, y in edges]
-            edges = edges + inverse_edge
 
         return vertices, edges, communities
 
@@ -27,6 +24,24 @@ class Generate_Graph:
         
         self.oriented = oriented
     
+
+    def duplicate_vertices(self):
+        """
+        this function duplicate and reverse vertices list if oriented is false
+
+        Args:
+        -----
+            None
+        
+        Returns:
+        --------
+            None
+
+        """
+        if(self.oriented == False):
+            inverse_edge = [(y, x) for x, y in self.edges]
+            self.edges = self.edges + inverse_edge
+
     def generate_vertices(self, num_vertices):
         """
         this function generate an vertices list
